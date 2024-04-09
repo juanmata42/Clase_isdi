@@ -7,18 +7,6 @@ https://github.com/ollama/ollama
 https://github.com/open-webui/open-webui
 https://github.com/bentoml/OpenLLM
 
-founderz
-dbarrantes88@gmail.com
-11223344Founderz
-
-testjuanma3@gmail.com
-Maquina limpia1
-
-github:
-testjuanma3@gmail.com
-Maquina limpia1
-testJuanma3
-
 install ollama:
 https://ollama.com/download
 ollama run para terminal
