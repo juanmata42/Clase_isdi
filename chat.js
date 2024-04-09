@@ -1,35 +1,23 @@
 function sendMessage() {
     var userInput = document.getElementById("userInput").value;
-    fetch('http://localhost:11434/api/chat', {
+    fetch('http://localhost:11434/api/chat?format=json', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
             model: "orca-mini",
+            stream: false,
             messages: [
                 { "role": "user", "content": userInput }
             ]
         }),
     })
-        .then(response => response.text()) // Read the response as text
-        .then(text => {
-            // Split the text into individual JSON strings
-            const jsonStrings = text.trim().split('}\n{');
-
-            let fullMessage = '';
-            jsonStrings.forEach((jsonStr, index) => {
-                // Properly reformat the string into valid JSON
-                if (index > 0) jsonStr = '{' + jsonStr;
-                if (index < jsonStrings.length - 1) jsonStr = jsonStr + '}';
-
-                // Parse each JSON string and concatenate the content
-                const data = JSON.parse(jsonStr);
-                fullMessage += data.message.content;
-            });
-
-            // Display the full message
-            displayMessage("Ollama: " + fullMessage, false);
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            displayMessage("You: " + userInput, true); // true for user message
+            displayMessage("Ollama: " + data.message.content, false); // false for Ollama response
         })
         .catch((error) => {
             console.error('Error:', error);
