@@ -5,6 +5,7 @@ https://rationalwiki.org/wiki/Roko%27s_basilisk
 https://ollama.com/download
 https://github.com/ollama/ollama
 https://github.com/open-webui/open-webui
+Ollama github y documentacion: https://github.com/ollama/ollama/tree/main
 Ampliar api server opciones: https://github.com/bentoml/OpenLLM
 
 install ollama:
